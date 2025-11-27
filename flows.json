@@ -1,0 +1,2606 @@
+[
+    {
+        "id": "1266b1222e128a02",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8e0c3829444f2c4f",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5f669536d21cd439",
+        "type": "ui_tab",
+        "name": "Acquisition panel",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "31b26f035b8abd85",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#1800cc",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#1800cc",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#1800cc",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#341aff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#1800cc",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "444019a729c4e732",
+        "type": "ui_group",
+        "name": "",
+        "tab": "5f669536d21cd439",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a28a27e4ff383db8",
+        "type": "ui_group",
+        "name": "",
+        "tab": "5f669536d21cd439",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "98c5a99ac4fab1cf",
+        "type": "ui_tab",
+        "name": "TestAudio",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "18ba527d57701ff9",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"filename\":\"FILENAME\"}",
+        "payloadType": "json",
+        "x": 310,
+        "y": 360,
+        "wires": [
+            [
+                "047df5a33253280a"
+            ]
+        ]
+    },
+    {
+        "id": "047df5a33253280a",
+        "type": "http request",
+        "z": "1266b1222e128a02",
+        "name": "/recording/start",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:8000/v1/1234/recording/start",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "b458396bdbc1e325",
+                "ac2615660e61d09f",
+                "afafa6d4f72d88c0"
+            ]
+        ]
+    },
+    {
+        "id": "b458396bdbc1e325",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "135b456bcff57c92",
+        "type": "tcp request",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "server": "127.0.0.1",
+        "port": "5555",
+        "out": "sit",
+        "ret": "string",
+        "splitc": " ",
+        "newline": "",
+        "trim": false,
+        "tls": "",
+        "x": 570,
+        "y": 760,
+        "wires": [
+            [
+                "e48ff4735a3efc14"
+            ]
+        ]
+    },
+    {
+        "id": "33977a2990d85526",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "devices",
+        "payloadType": "str",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            [
+                "135b456bcff57c92"
+            ]
+        ]
+    },
+    {
+        "id": "15f0e492bb3df003",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "af6b702ff5a6e059",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "x": 130,
+        "y": 780,
+        "wires": [
+            [
+                "f35f72064c420c96"
+            ]
+        ]
+    },
+    {
+        "id": "e48ff4735a3efc14",
+        "type": "json",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 763,
+        "y": 764,
+        "wires": [
+            [
+                "9c39d8388cb4d63e",
+                "15f0e492bb3df003",
+                "def74c2e0e68bfff",
+                "7ae03d1f6518be87",
+                "77775449624755a6",
+                "593abf7142d5e2e1"
+            ]
+        ]
+    },
+    {
+        "id": "fb63bf2ec15146ae",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 4,
+        "width": "7",
+        "height": "2",
+        "passthru": true,
+        "label": "Start Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "start",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 740,
+        "wires": [
+            [
+                "135b456bcff57c92",
+                "552c15fb1e02fa61",
+                "f40f68ee6261630b"
+            ]
+        ]
+    },
+    {
+        "id": "f35f72064c420c96",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 5,
+        "width": "7",
+        "height": "2",
+        "passthru": true,
+        "label": "Stop Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 780,
+        "wires": [
+            [
+                "135b456bcff57c92",
+                "0ee667d9428b9aa1",
+                "d1de8bb426548111",
+                "f1ad08948d3e5e88"
+            ]
+        ]
+    },
+    {
+        "id": "7a7da86869232142",
+        "type": "ui_text",
+        "z": "1266b1222e128a02",
+        "group": "a28a27e4ff383db8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PLUX Acquisition",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1830,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "9361b9a74173d2bd",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "a28a27e4ff383db8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Clear",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": ".",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1630,
+        "y": 500,
+        "wires": [
+            [
+                "233155918e1b0820",
+                "bfb8417d783ddebf",
+                "7a7da86869232142",
+                "4c0bd098c845fe8f",
+                "68e6c9f9f2fcb1da",
+                "fd2a3e6f784ae960"
+            ]
+        ]
+    },
+    {
+        "id": "221a27427e9dcdc6",
+        "type": "file",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "filename": "C:\\Users\\amard\\Documents\\node-red_path\\a.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1540,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "def74c2e0e68bfff",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "Save data to File",
+        "func": "const time = new Date();\n\nmsg.payload.ts = time.toISOString();\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1230,
+        "y": 1140,
+        "wires": [
+            [
+                "4c5a1d29362fd16c",
+                "221a27427e9dcdc6"
+            ]
+        ]
+    },
+    {
+        "id": "dc1ff0e5c7fc1513",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 873,
+        "y": 944,
+        "wires": [
+            [
+                "def74c2e0e68bfff"
+            ]
+        ]
+    },
+    {
+        "id": "4c5a1d29362fd16c",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1353,
+        "y": 1004,
+        "wires": []
+    },
+    {
+        "id": "9c39d8388cb4d63e",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "filter only PLUX data",
+        "func": "var data = msg.payload.returnData\n\nif(data!=undefined)\n{\n   if (Object.keys(data).length !== 0)\n   {\n\n   var objectNames = Object.keys(data);\n\nif (objectNames[0]!==\"0\")\n\n{\n\n      msg.objectNames =objectNames;\n      msg.topic=\"stream\"\n      return msg;\n}\n      \n      }\n      \n       \n\n     \n    \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 880,
+        "wires": [
+            [
+                "226f9f18a6afc487"
+            ]
+        ]
+    },
+    {
+        "id": "11499cd9cb6e4b38",
+        "type": "comment",
+        "z": "1266b1222e128a02",
+        "name": "PLUX data received, Start rokoko",
+        "info": "",
+        "x": 1770,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "f2d2e88c4d5a29e6",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 7,
+        "width": "7",
+        "height": "2",
+        "passthru": true,
+        "label": "Trigger Timestamp",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 1140,
+        "wires": [
+            [
+                "6df27ad9e173adce",
+                "484f0b4f7267fb40"
+            ]
+        ]
+    },
+    {
+        "id": "6df27ad9e173adce",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "write trigger to file",
+        "func": "const time = new Date(msg.payload);\n\nmsg.payload = time.toISOString() +\"  Trigger from User\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 1140,
+        "wires": [
+            [
+                "221a27427e9dcdc6",
+                "40bd2fdd96605cad",
+                "f6cda61ecd7fe65c"
+            ]
+        ]
+    },
+    {
+        "id": "7725f3f2a17c2f95",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 1140,
+        "wires": [
+            [
+                "f2d2e88c4d5a29e6"
+            ]
+        ]
+    },
+    {
+        "id": "ef8dbf6560e6434e",
+        "type": "comment",
+        "z": "1266b1222e128a02",
+        "name": " rokoko APIs",
+        "info": "",
+        "x": 90,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "beb2b163b9f28ecd",
+        "type": "http request",
+        "z": "1266b1222e128a02",
+        "name": "/recording/stop",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:8000/v1/1234/recording/stop",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "b458396bdbc1e325",
+                "ac2615660e61d09f",
+                "afafa6d4f72d88c0"
+            ]
+        ]
+    },
+    {
+        "id": "6e0afc0ed707be38",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 1",
+        "func": "if (msg.topic == \"stream\")\n{\n    \nnode.send({ payload : \"Started\"})\n}\nelse \n{\nif ( msg.topic == \"Connected to PLUX server\")\n{\n    node.send ({ payload : \"Server Connected\" })\n\n\n}\n\n  \n\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nvar msg={payload : \"Please connect\"};\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 1500,
+        "y": 620,
+        "wires": [
+            [
+                "dc9fe29f453aadef",
+                "7a7da86869232142"
+            ]
+        ]
+    },
+    {
+        "id": "428122b69732e598",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "0 text",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 1510,
+        "y": 500,
+        "wires": [
+            [
+                "9361b9a74173d2bd"
+            ]
+        ]
+    },
+    {
+        "id": "233155918e1b0820",
+        "type": "ui_text",
+        "z": "1266b1222e128a02",
+        "group": "a28a27e4ff383db8",
+        "order": 5,
+        "width": "10",
+        "height": "2",
+        "name": "",
+        "label": "Rokoko Recording",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1150,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "b514d75e6b7771ea",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 2",
+        "func": "if (msg.payload==1)\n{\n    msg.topic = \"stream\"\n    return msg;}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 860,
+        "wires": [
+            [
+                "6e0afc0ed707be38"
+            ]
+        ]
+    },
+    {
+        "id": "226f9f18a6afc487",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "func": "\nlet msgCount = global.get(\"msgCount\") || 0;//get remembered count\nlet sendMessage = false;\nlet countMessage = \"\";\n\n    msgCount++; //increment count\n\n\ncountMessage =msgCount;\n\n\nglobal.set(\"msgCount\", msgCount); //remember count\nnode.status(countMessage);\nlet msgWithCount = { payload: countMessage };\n\nif(sendMessage) {\n    return [msg, msgWithCount];\n} else {\n    return [null, msgWithCount];\n}\n\n\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 920,
+        "wires": [
+            [],
+            [
+                "6b6422d9f3003a6c",
+                "b514d75e6b7771ea"
+            ]
+        ]
+    },
+    {
+        "id": "6b6422d9f3003a6c",
+        "type": "ui_text",
+        "z": "1266b1222e128a02",
+        "group": "a28a27e4ff383db8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Stream packets received:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1650,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "40bd2fdd96605cad",
+        "type": "file",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "filename": "C:\\Users\\amard\\Documents\\node-red_path\\triggers.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1400,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7ae03d1f6518be87",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "filter only PLUX data",
+        "func": "var data = msg.payload.returnData\n\nif(data!=undefined)\n{\n   if (Object.keys(data).length !== 0)\n   {\n\n   var objectNames = Object.keys(data);\n\nif (objectNames[0]===\"0\")\n\n\n\n\n      msg.topic=\"Connected to PLUX server\"\n         node.send({ payload: \"Server Connected\" })} \n    \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 620,
+        "wires": [
+            [
+                "bfb8417d783ddebf"
+            ]
+        ]
+    },
+    {
+        "id": "bfb8417d783ddebf",
+        "type": "ui_text",
+        "z": "1266b1222e128a02",
+        "group": "a28a27e4ff383db8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PLUX Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1810,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "1af8a09ec9f7a9f6",
+        "type": "ui_text_input",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "label": "Acquisition Name:",
+        "tooltip": "",
+        "group": "444019a729c4e732",
+        "order": 3,
+        "width": "7",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 150,
+        "y": 1420,
+        "wires": [
+            [
+                "d653e4a17510cb23",
+                "dd57c7617f0e9ad0"
+            ]
+        ]
+    },
+    {
+        "id": "d653e4a17510cb23",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "1c0a9c54a801c7b8",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "start",
+        "payloadType": "str",
+        "x": 130,
+        "y": 740,
+        "wires": [
+            [
+                "fb63bf2ec15146ae"
+            ]
+        ]
+    },
+    {
+        "id": "4c0bd098c845fe8f",
+        "type": "ui_text",
+        "z": "1266b1222e128a02",
+        "group": "444019a729c4e732",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Last Trigger:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 990,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "484f0b4f7267fb40",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "write trigger to file",
+        "func": "const time = new Date(msg.payload);\nvar trgCount= global.get(\"trgCount\"); \ntrgCount++\nglobal.set(\"trgCount\", trgCount); \nmsg.payload = trgCount + \"   \" + time.toTimeString();\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 1260,
+        "wires": [
+            [
+                "4c0bd098c845fe8f"
+            ]
+        ]
+    },
+    {
+        "id": "552c15fb1e02fa61",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 3",
+        "func": "global.set(\"trgCount\", 0); ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36a83f379d5c4926",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"filename\":\"FILENAME\"}",
+        "payloadType": "json",
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "beb2b163b9f28ecd"
+            ]
+        ]
+    },
+    {
+        "id": "fe6029749f4797e1",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 4",
+        "func": "msg.payload = { \"filename\": \"FILENAME\", \"back_to_live\": true }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3431cd5abebd8195",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 2,
+        "width": "7",
+        "height": "1",
+        "passthru": true,
+        "label": "Calibrate Rokoko",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"filename\":\"FILENAME\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "e390f571f3595615"
+            ]
+        ]
+    },
+    {
+        "id": "6121aae70067b79e",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "3431cd5abebd8195"
+            ]
+        ]
+    },
+    {
+        "id": "ac2615660e61d09f",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "write trigger to file",
+        "func": "const time = new Date();\n\nmsg.payload = time.toISOString() + \"  Event: \" + msg.payload;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 400,
+        "wires": [
+            [
+                "40bd2fdd96605cad",
+                "f6cda61ecd7fe65c"
+            ]
+        ]
+    },
+    {
+        "id": "e390f571f3595615",
+        "type": "http request",
+        "z": "1266b1222e128a02",
+        "name": "/recording/start",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:8000/v1/1234/calibrate",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 540,
+        "y": 320,
+        "wires": [
+            [
+                "b458396bdbc1e325",
+                "ac2615660e61d09f"
+            ]
+        ]
+    },
+    {
+        "id": "f58cc77360b61c7b",
+        "type": "http request",
+        "z": "1266b1222e128a02",
+        "name": "/info",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:8000/v1/1234/info",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1030,
+        "y": 440,
+        "wires": [
+            [
+                "a610ced1eda4d7eb",
+                "042c21021a724a45"
+            ]
+        ]
+    },
+    {
+        "id": "8eb8de77af6a12af",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"devices_info:\":\"true\"}",
+        "payloadType": "json",
+        "x": 910,
+        "y": 280,
+        "wires": [
+            [
+                "f58cc77360b61c7b",
+                "88fae0c4ed54e7d7"
+            ]
+        ]
+    },
+    {
+        "id": "e6d5a99efda7d890",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1500,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a610ced1eda4d7eb",
+        "type": "json",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1190,
+        "y": 400,
+        "wires": [
+            [
+                "fd2a3e6f784ae960",
+                "e6d5a99efda7d890"
+            ]
+        ]
+    },
+    {
+        "id": "fd2a3e6f784ae960",
+        "type": "ui_text",
+        "z": "1266b1222e128a02",
+        "group": "a28a27e4ff383db8",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ROKOKO SUIT:",
+        "format": "{{msg.payload.parameters}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1820,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "43fc820fde492197",
+        "type": "http request",
+        "z": "1266b1222e128a02",
+        "name": "/info",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:8000/v1/1234/info",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1703,
+        "y": 664,
+        "wires": [
+            [
+                "c03261e0af68aa4d"
+            ]
+        ]
+    },
+    {
+        "id": "f47a9a7bfe247c4b",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"clips_info:\":\"true\",\"devices_info\":\"false\"}",
+        "payloadType": "json",
+        "x": 1570,
+        "y": 660,
+        "wires": [
+            [
+                "43fc820fde492197"
+            ]
+        ]
+    },
+    {
+        "id": "613d7708e0cd3e69",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1960,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "c03261e0af68aa4d",
+        "type": "json",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1830,
+        "y": 660,
+        "wires": [
+            [
+                "613d7708e0cd3e69"
+            ]
+        ]
+    },
+    {
+        "id": "c8af52a790ee9209",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 8,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "label": "1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "1",
+        "topicType": "str",
+        "x": 630,
+        "y": 1400,
+        "wires": [
+            [
+                "269688c71423205a"
+            ]
+        ]
+    },
+    {
+        "id": "e28c0b5013022ae0",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 9,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "label": "2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "2",
+        "topicType": "str",
+        "x": 630,
+        "y": 1440,
+        "wires": [
+            [
+                "269688c71423205a"
+            ]
+        ]
+    },
+    {
+        "id": "07e54c5041b34276",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 10,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "label": "3",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "3",
+        "topicType": "str",
+        "x": 630,
+        "y": 1480,
+        "wires": [
+            [
+                "269688c71423205a"
+            ]
+        ]
+    },
+    {
+        "id": "e012466e5e5ba865",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 11,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "label": "4",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "4",
+        "topicType": "str",
+        "x": 630,
+        "y": 1520,
+        "wires": [
+            [
+                "269688c71423205a"
+            ]
+        ]
+    },
+    {
+        "id": "ac9718929e858852",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 12,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "label": "5",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "5",
+        "topicType": "str",
+        "x": 630,
+        "y": 1560,
+        "wires": [
+            [
+                "269688c71423205a"
+            ]
+        ]
+    },
+    {
+        "id": "148a5ae43f27be59",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 13,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "label": "6",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "6",
+        "topicType": "str",
+        "x": 630,
+        "y": 1600,
+        "wires": [
+            [
+                "269688c71423205a"
+            ]
+        ]
+    },
+    {
+        "id": "0af537cbcf33e1e5",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 14,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "label": "7",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "7",
+        "topicType": "str",
+        "x": 630,
+        "y": 1640,
+        "wires": [
+            [
+                "269688c71423205a"
+            ]
+        ]
+    },
+    {
+        "id": "74cbb81f62d1e277",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "dc9fe29f453aadef",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 5",
+        "func": "var file_name = global.get(\"file_name\");\n\n\n\n\nmsg.payload = { \"filename\": \"FILE\" + file_name, \"back_to_live\": true }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 220,
+        "wires": [
+            [
+                "047df5a33253280a"
+            ]
+        ]
+    },
+    {
+        "id": "042c21021a724a45",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 6",
+        "func": "if (msg.payload == \"null\")\n{\n    \nnode.send({ payload : \"Server Connected\"})\n}\nelse \n{var obj= JSON.parse(msg.payload);\n\n  if (obj.description=\"Ok\")\n{\n    \n    node.send({ payload: \"Server Connected\" })\n\n}\n}\n\n  ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nvar msg={payload : \"Please connect\"};\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 440,
+        "wires": [
+            [
+                "68e6c9f9f2fcb1da"
+            ]
+        ]
+    },
+    {
+        "id": "68e6c9f9f2fcb1da",
+        "type": "ui_text",
+        "z": "1266b1222e128a02",
+        "group": "a28a27e4ff383db8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ROKOKO Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1830,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e2e47503a4ad9822",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 1,
+        "width": "7",
+        "height": "1",
+        "passthru": true,
+        "label": "Verify Status",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "devices",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 263,
+        "y": 944,
+        "wires": [
+            [
+                "135b456bcff57c92",
+                "fde3ed4b1de62831"
+            ]
+        ]
+    },
+    {
+        "id": "fde3ed4b1de62831",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "write trigger to file",
+        "func": "msg.payload = {devices_info:\"true\"}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "f58cc77360b61c7b",
+                "88fae0c4ed54e7d7"
+            ]
+        ]
+    },
+    {
+        "id": "a01f656a823f5984",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 7",
+        "func": "if (msg.payload.response_code==\"OK\")\n{\n    msg.payload=msg.payload.description\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nvar msg={payload : \"Please connect\"};\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 640,
+        "wires": [
+            [
+                "233155918e1b0820"
+            ]
+        ]
+    },
+    {
+        "id": "afafa6d4f72d88c0",
+        "type": "json",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 710,
+        "y": 640,
+        "wires": [
+            [
+                "a01f656a823f5984"
+            ]
+        ]
+    },
+    {
+        "id": "88fae0c4ed54e7d7",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "77775449624755a6",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 8",
+        "func": "if (msg.payload.returnData == \"Acquisition Stopped\" || msg.payload.returnCode == 7 )\n{\n    msg.payload = msg.payload.returnData\n\n\n\nreturn msg;}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nvar msg={payload : \"Please connect\"};\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 660,
+        "wires": [
+            [
+                "7a7da86869232142"
+            ]
+        ]
+    },
+    {
+        "id": "593abf7142d5e2e1",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 9",
+        "func": "if (msg.payload.returnData == \"Acquisition Stopped\" || msg.payload.returnCode == 7 )\n{\n    \n\n\n\nreturn msg;}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nvar msg={payload : \"Please connect\"};\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 720,
+        "wires": [
+            [
+                "ac970f803cd3ac86",
+                "40bd2fdd96605cad",
+                "f6cda61ecd7fe65c"
+            ]
+        ]
+    },
+    {
+        "id": "ac970f803cd3ac86",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "269688c71423205a",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "write trigger to file",
+        "func": "const time = new Date();\n\nmsg.payload = time.toISOString() +\"  Trigger from User, answer is: \"+ msg.topic;\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 1380,
+        "wires": [
+            [
+                "74cbb81f62d1e277",
+                "f6cda61ecd7fe65c"
+            ]
+        ]
+    },
+    {
+        "id": "dd57c7617f0e9ad0",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "0 count",
+        "func": "global.set(\"file_name\", msg.payload); //remember count\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1480,
+        "wires": [
+            [
+                "7788bb35f7f8fb86"
+            ]
+        ]
+    },
+    {
+        "id": "0ee667d9428b9aa1",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "0 count",
+        "func": "global.set(\"msgCount\", 0); //remember count\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7788bb35f7f8fb86",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 10",
+        "func": "var file_name= global.get(\"file_name\");\nmsg.filename = \"C:\\\\Users\\\\amard\\\\Documents\\\\node-red_path\\\\\"+file_name+\".txt\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 1580,
+        "wires": [
+            [
+                "b5734dd15b7e835b"
+            ]
+        ]
+    },
+    {
+        "id": "b5734dd15b7e835b",
+        "type": "debug",
+        "z": "1266b1222e128a02",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "f6cda61ecd7fe65c",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 11",
+        "func": "var file_name= global.get(\"file_name\");\nmsg.filename = \"C:\\\\Users\\\\amard\\\\Documents\\\\node-red_path\\\\\"+file_name+\".txt\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 1240,
+        "wires": [
+            [
+                "1f3301bc38b096da"
+            ]
+        ]
+    },
+    {
+        "id": "1f3301bc38b096da",
+        "type": "file",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1420,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f40f68ee6261630b",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "write log to file",
+        "func": "const time = new Date();\n\nmsg.payload = time.toISOString() + \"  Start Command Sent\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 820,
+        "wires": [
+            [
+                "f6cda61ecd7fe65c"
+            ]
+        ]
+    },
+    {
+        "id": "d1de8bb426548111",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "write log to file",
+        "func": "const time = new Date();\n\nmsg.payload = time.toISOString() + \"  Stop Command Sent\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 860,
+        "wires": [
+            [
+                "f6cda61ecd7fe65c"
+            ]
+        ]
+    },
+    {
+        "id": "f1ad08948d3e5e88",
+        "type": "function",
+        "z": "1266b1222e128a02",
+        "name": "function 12",
+        "func": "var file_name = global.get(\"file_name\");\n\n\n\n\nmsg.payload = { \"filename\": \"FILE\" + file_name, \"back_to_live\": true }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 540,
+        "wires": [
+            [
+                "beb2b163b9f28ecd"
+            ]
+        ]
+    },
+    {
+        "id": "0d471d32e5f95023",
+        "type": "ui_audio",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "voice": "Google UK English Male",
+        "always": "",
+        "x": 760,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "ddde7b3dd62d23fb",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Play",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 1920,
+        "wires": [
+            [
+                "0778322da93b0aef"
+            ]
+        ]
+    },
+    {
+        "id": "0778322da93b0aef",
+        "type": "file in",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "filename": "C:\\Users\\amard\\OneDrive\\Documenti\\frecuenciasbajas.wav",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 580,
+        "y": 1900,
+        "wires": [
+            [
+                "0d471d32e5f95023"
+            ]
+        ]
+    },
+    {
+        "id": "df29dc3119eac3b9",
+        "type": "inject",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 1780,
+        "wires": [
+            [
+                "0778322da93b0aef"
+            ]
+        ]
+    },
+    {
+        "id": "d3bc42a1dc8e454a",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Play",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 1980,
+        "wires": [
+            [
+                "34f3583eafaa2fad"
+            ]
+        ]
+    },
+    {
+        "id": "34f3583eafaa2fad",
+        "type": "file in",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "filename": "C:\\Users\\amard\\OneDrive\\Documenti\\frecuanciasaltas.wav",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 420,
+        "y": 1980,
+        "wires": [
+            [
+                "0d471d32e5f95023"
+            ]
+        ]
+    },
+    {
+        "id": "a73ca60682189dd9",
+        "type": "ui_button",
+        "z": "1266b1222e128a02",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Play",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "This is a footstep sinchronization sound test",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 470,
+        "y": 2060,
+        "wires": [
+            [
+                "0d471d32e5f95023"
+            ]
+        ]
+    },
+    {
+        "id": "d6a0d12c6d5239f8",
+        "type": "inject",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "start",
+        "payloadType": "str",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "b5f01fe57c67e409"
+            ]
+        ]
+    },
+    {
+        "id": "77ed5ba560372903",
+        "type": "inject",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "756049bc33353771"
+            ]
+        ]
+    },
+    {
+        "id": "ce46db6a7f22afb9",
+        "type": "inject",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "devices",
+        "payloadType": "str",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "ec5e6ff929108f1e"
+            ]
+        ]
+    },
+    {
+        "id": "b5f01fe57c67e409",
+        "type": "ui_button",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 4,
+        "width": "7",
+        "height": "2",
+        "passthru": true,
+        "label": "Start Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "start",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 380,
+        "wires": [
+            [
+                "ec5e6ff929108f1e"
+            ]
+        ]
+    },
+    {
+        "id": "756049bc33353771",
+        "type": "ui_button",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "group": "444019a729c4e732",
+        "order": 5,
+        "width": "7",
+        "height": "2",
+        "passthru": true,
+        "label": "Stop Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 280,
+        "y": 420,
+        "wires": [
+            [
+                "ec5e6ff929108f1e"
+            ]
+        ]
+    },
+    {
+        "id": "ec5e6ff929108f1e",
+        "type": "tcp request",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "server": "127.0.0.1",
+        "port": "5555",
+        "out": "sit",
+        "ret": "string",
+        "splitc": " ",
+        "newline": "",
+        "trim": false,
+        "tls": "",
+        "x": 570,
+        "y": 400,
+        "wires": [
+            [
+                "9137689c35a39ca4"
+            ]
+        ]
+    },
+    {
+        "id": "9137689c35a39ca4",
+        "type": "json",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 763,
+        "y": 404,
+        "wires": [
+            [
+                "8486525bac2c630c",
+                "2bbd19d42fc9b368",
+                "f9cd55bd034e3288",
+                "26f405c145d5dd47",
+                "be4e1e769946afa4",
+                "9c90f0733e314a89"
+            ]
+        ]
+    },
+    {
+        "id": "2bbd19d42fc9b368",
+        "type": "debug",
+        "z": "8e0c3829444f2c4f",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "8486525bac2c630c",
+        "type": "function",
+        "z": "8e0c3829444f2c4f",
+        "name": "filter only PLUX data",
+        "func": "var data = msg.payload.returnData\n\nif(data!=undefined)\n{\n   if (Object.keys(data).length !== 0)\n   {\n\n   var objectNames = Object.keys(data);\n\nif (objectNames[0]!==\"0\")\n\n{\n\n      msg.objectNames =objectNames;\n      msg.topic=\"stream\"\n      return msg;\n}\n      \n      }\n      \n       \n\n     \n    \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 520,
+        "wires": [
+            [
+                "1e98c060bf2e9592"
+            ]
+        ]
+    },
+    {
+        "id": "1e98c060bf2e9592",
+        "type": "function",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "func": "\nlet msgCount = global.get(\"msgCount\") || 0;//get remembered count\nlet sendMessage = false;\nlet countMessage = \"\";\n\n    msgCount++; //increment count\n\n\ncountMessage =msgCount;\n\n\nglobal.set(\"msgCount\", msgCount); //remember count\nnode.status(countMessage);\nlet msgWithCount = { payload: countMessage };\n\nif(sendMessage) {\n    return [msg, msgWithCount];\n} else {\n    return [null, msgWithCount];\n}\n\n\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1420,
+        "y": 560,
+        "wires": [
+            [],
+            [
+                "8215c9bd3b7e6e09",
+                "a43f949c4017f104"
+            ]
+        ]
+    },
+    {
+        "id": "a43f949c4017f104",
+        "type": "function",
+        "z": "8e0c3829444f2c4f",
+        "name": "function 13",
+        "func": "if (msg.payload==1)\n{\n    msg.topic = \"stream\"\n    return msg;}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 500,
+        "wires": [
+            [
+                "b29e58f47c42422b"
+            ]
+        ]
+    },
+    {
+        "id": "8215c9bd3b7e6e09",
+        "type": "ui_text",
+        "z": "8e0c3829444f2c4f",
+        "group": "a28a27e4ff383db8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Stream packets received:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1650,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "9c90f0733e314a89",
+        "type": "function",
+        "z": "8e0c3829444f2c4f",
+        "name": "function 14",
+        "func": "if (msg.payload.returnData == \"Acquisition Stopped\" || msg.payload.returnCode == 7 )\n{\n    \n\n\n\nreturn msg;}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nvar msg={payload : \"Please connect\"};\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 360,
+        "wires": [
+            [
+                "264c5ca71b7c9b60",
+                "29d8eecd0d5cbd26"
+            ]
+        ]
+    },
+    {
+        "id": "be4e1e769946afa4",
+        "type": "function",
+        "z": "8e0c3829444f2c4f",
+        "name": "function 15",
+        "func": "if (msg.payload.returnData == \"Acquisition Stopped\" || msg.payload.returnCode == 7 )\n{\n    msg.payload = msg.payload.returnData\n\n\n\nreturn msg;}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nvar msg={payload : \"Please connect\"};\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 300,
+        "wires": [
+            [
+                "68da7f0cb7cda045"
+            ]
+        ]
+    },
+    {
+        "id": "26f405c145d5dd47",
+        "type": "function",
+        "z": "8e0c3829444f2c4f",
+        "name": "filter only PLUX data",
+        "func": "var data = msg.payload.returnData\n\nif(data!=undefined)\n{\n   if (Object.keys(data).length !== 0)\n   {\n\n   var objectNames = Object.keys(data);\n\nif (objectNames[0]===\"0\")\n\n\n\n\n      msg.topic=\"Connected to PLUX server\"\n         node.send({ payload: \"Server Connected\" })} \n    \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 260,
+        "wires": [
+            [
+                "02d4c282b573afac"
+            ]
+        ]
+    },
+    {
+        "id": "f9cd55bd034e3288",
+        "type": "function",
+        "z": "8e0c3829444f2c4f",
+        "name": "Save data to File",
+        "func": "const time = new Date();\n\nmsg.payload.ts = time.toISOString();\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1230,
+        "y": 780,
+        "wires": [
+            [
+                "cbe0a9e1f99079af"
+            ]
+        ]
+    },
+    {
+        "id": "411440c8754e7c97",
+        "type": "inject",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 873,
+        "y": 584,
+        "wires": [
+            [
+                "f9cd55bd034e3288"
+            ]
+        ]
+    },
+    {
+        "id": "cbe0a9e1f99079af",
+        "type": "file",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "filename": "C:\\Users\\amard\\Documents\\node-red_path\\a.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1540,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "264c5ca71b7c9b60",
+        "type": "file",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "filename": "C:\\Users\\amard\\Documents\\node-red_path\\triggers.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1400,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "29d8eecd0d5cbd26",
+        "type": "function",
+        "z": "8e0c3829444f2c4f",
+        "name": "function 16",
+        "func": "var file_name= global.get(\"file_name\");\nmsg.filename = \"C:\\\\Users\\\\amard\\\\Documents\\\\node-red_path\\\\\"+file_name+\".txt\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 880,
+        "wires": [
+            [
+                "9e71c5bb92085c9a"
+            ]
+        ]
+    },
+    {
+        "id": "9e71c5bb92085c9a",
+        "type": "file",
+        "z": "8e0c3829444f2c4f",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1420,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b29e58f47c42422b",
+        "type": "function",
+        "z": "8e0c3829444f2c4f",
+        "name": "function 17",
+        "func": "if (msg.topic == \"stream\")\n{\n    \nnode.send({ payload : \"Started\"})\n}\nelse \n{\nif ( msg.topic == \"Connected to PLUX server\")\n{\n    node.send ({ payload : \"Server Connected\" })\n\n\n}\n\n  \n\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n\nvar msg={payload : \"Please connect\"};\nreturn msg;",
+        "finalize": "",
+        "libs": [],
+        "x": 1500,
+        "y": 260,
+        "wires": [
+            [
+                "68da7f0cb7cda045"
+            ]
+        ]
+    },
+    {
+        "id": "68da7f0cb7cda045",
+        "type": "ui_text",
+        "z": "8e0c3829444f2c4f",
+        "group": "a28a27e4ff383db8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PLUX Acquisition",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1830,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "02d4c282b573afac",
+        "type": "ui_text",
+        "z": "8e0c3829444f2c4f",
+        "group": "a28a27e4ff383db8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PLUX Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1810,
+        "y": 200,
+        "wires": []
+    }
+]
