@@ -1174,7 +1174,7 @@
         "topic": "",
         "payload": "{\"devices_info:\":\"true\"}",
         "payloadType": "json",
-        "x": 910,
+        "x": 890,
         "y": 280,
         "wires": [
             [
